@@ -68,5 +68,25 @@ class RestaurantTest {
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+    //<<<<<<<<<<<<<<<<<<<<Items Price Calculation>>>>>>>>>>>>>>>>>>
+    @Test
+    public void calculate_price_for_items_user_selected_should_return_correct_value(){
+        List<String> selectedItems = new ArrayList<String>();
+
+        assertEquals(0,restaurant.calculatePriceForSelectedItems(selectedItems));
+
+        selectedItems.add(restaurant.getMenu().get(0).getName());
+        int price = restaurant.calculatePriceForSelectedItems(selectedItems);
+
+        assertEquals(119,price);
+
+        selectedItems.add(restaurant.getMenu().get(1).getName());
+        price = restaurant.calculatePriceForSelectedItems(selectedItems);
+
+        assertEquals(388,price);
+    }
+
+
+    //<<<<<<<<<<<<<<<<<<<<Items Price Calculation>>>>>>>>>>>>>>>>>>
 
 }
